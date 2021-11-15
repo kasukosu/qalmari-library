@@ -12,7 +12,10 @@ body, button{
   height: 40vmin;
   pointer-events: none;
 }
-
+.App{
+  max-width: 400px;
+  margin: 0 auto;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -31,14 +34,16 @@ body, button{
 }
 
 .feed{
+  position: relative;
   display: grid;
   background-color: white;
   grid-auto-rows: auto;
   grid-gap: 1rem;
-  max-width: 400px;
   padding-top: 2rem;
   border-radius: 8px;
   margin: 0rem auto;
+
+
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .feed > *{
@@ -50,7 +55,7 @@ article{
   overflow: hidden;
 }
 
-article + article {
+article {
   border-top: 2px gainsboro solid;
 
 }
@@ -64,11 +69,14 @@ article + article {
   border-radius: 8px;
   top: 0px;
   left: 0px;
+  right: 0px;
   min-height: 300px;
   height: 100%;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .filter{
