@@ -13,6 +13,8 @@ const Filter = ({newSearch, searchHandler, setSortMethod}) => {
                 <button onClick={() => setSortMethod(1)}><FontAwesomeIcon icon={faSortAlphaUp}/></button>
               </div>
             </div>
+
+            {/* Genrejen sorttaus */}
             {/* <div className="flex">
               <p>Sort by genre:</p>
               <div className="flex center">

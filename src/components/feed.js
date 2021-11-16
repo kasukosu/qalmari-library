@@ -3,7 +3,7 @@ import BookCreator from './book-creator';
 import Filter from './filter'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { faFilter, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Feed = () => {
 
@@ -86,7 +86,7 @@ const Feed = () => {
       const response = await axios.get(apiUrl);
       setBooks(response.data)
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
@@ -97,32 +97,31 @@ const Feed = () => {
         alert("Name and genre fields are required")
         return
       }
-      const res = await axios.post(apiUrl, newBook)
+      await axios.post(apiUrl, newBook)
       getBooks()
       setNewBook({
         name: "",
         genre: "",
       })
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
 
   }
 
   const deleteBook = async (id) => {
     try {
-      const res = await axios.delete(`${apiUrl}/${id}`)
-      console.log(`${apiUrl}/${id}`);
+      await axios.delete(`${apiUrl}/${id}`)
       const filteredBooks = books.filter((book) => {return (book.id !== id)})
       setBooks(filteredBooks);
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
   useEffect(() => {
     getBooks();
-  }, [0])
+  }, [])
 
   return (
     <section className="feed">
@@ -140,7 +139,6 @@ const Feed = () => {
         changeHandler={changeHandler}
         addNewBook={addNewBook}/>
       }
-
 
       {booksToShow && booksToShow.map( book => {
           return(

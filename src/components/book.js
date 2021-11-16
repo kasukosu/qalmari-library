@@ -23,8 +23,7 @@ const Book = ({book, deleteBook, books, setBooks}) => {
         return
       }
       e.preventDefault();
-      const res = await axios.put(`${apiUrl}/${editableBook.id}`, editableBook)
-      console.log(res);
+      await axios.put(`${apiUrl}/${editableBook.id}`, editableBook)
       const changedBooks = books.map(book => book.id === editableBook.id ?
         { ...book, name:editableBook.name, genre:editableBook.genre } :
         book)
@@ -44,7 +43,6 @@ const Book = ({book, deleteBook, books, setBooks}) => {
 
   const changeLoanStatus = async(e) => {
     try {
-      console.log(editableBook);
       let url = `${apiUrl}/loan/${editableBook.id}`;
       if(editableBook.isLoaned){
         url = `${apiUrl}/return/${editableBook.id}`;
@@ -54,12 +52,11 @@ const Book = ({book, deleteBook, books, setBooks}) => {
         setEditableBook({...editableBook, isLoaned:true})
 
       }
-      const res = await axios.put(url, editableBook.id)
-      console.log(res);
+      await axios.put(url, editableBook.id)
       const changedBooks = books.map(book => book.id === editableBook.id ? { ...book, isLoaned:editableBook.isLoaned } : book)
       setBooks(changedBooks);
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
