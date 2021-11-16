@@ -3,6 +3,8 @@ import BookCreator from './book-creator';
 import Filter from './filter'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import { faFilter, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Feed = () => {
 
   const apiUrl = 'http://localhost:3000/api/books';
@@ -16,7 +18,7 @@ const Feed = () => {
     genre: "",
   });
 
-  const sortingFunc = (a, b) => {
+  const sortingFunc = (a,b) => {
     if(sortMethod===0){
       if ( a.name < b.name ){
         return -1;
@@ -30,6 +32,23 @@ const Feed = () => {
         return -1;
       }
       if ( a.name < b.name ){
+        return 1;
+      }
+      return 0;
+    }else if(sortMethod===2){
+      if ( a.genre > b.genre ){
+        return -1;
+      }
+      if ( a.genre < b.genre ){
+        return 1;
+      }
+      return 0;
+    }
+    else if(sortMethod===3){
+      if ( a.genre < b.genre ){
+        return -1;
+      }
+      if ( a.genre > b.genre ){
         return 1;
       }
       return 0;
@@ -107,9 +126,9 @@ const Feed = () => {
 
   return (
     <section className="feed">
-      <div className="grid">
-        <button onClick={() => setShowFilter(false)}>Add new book</button>
-        <button onClick={() => setShowFilter(true)}>Search</button>
+      <div className="actions">
+        <button onClick={() => setShowFilter(false)}><FontAwesomeIcon icon={faPlus}/></button>
+        <button onClick={() => setShowFilter(true)}><FontAwesomeIcon icon={faSearch}/></button>
       </div>
       {showFilter ?
       <Filter

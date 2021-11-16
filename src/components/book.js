@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 import Editor from "./editor";
-import { faHome, faPen, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -72,7 +72,14 @@ const Book = ({book, deleteBook, books, setBooks}) => {
         </div>
       </div>
       <div>
-        {editableBook.isLoaned && editableBook.isLoaned ? <p>This book is loaned</p>:<p>This book is free</p>}
+        {editableBook.isLoaned && editableBook.isLoaned ?
+          <div className="status loaned">
+            <p>Loaned</p>
+          </div>:
+          <div className="status free">
+            <p>Free</p>
+          </div>
+          }
         <button className="toggle-btn" type="checkbox" onClick={changeLoanStatus}>
           {editableBook.isLoaned && editableBook.isLoaned ? <p>Return</p>:<p>Loan</p>}
         </button>

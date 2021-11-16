@@ -7,8 +7,8 @@ const Editor = ({editBook, changeHandler, editableBook, setShowEdit}) => {
           <input type="text" name="name" value={editableBook.name} onChange={changeHandler} required/>
           <input type="text" name="genre" value={editableBook.genre} onChange={changeHandler} required/>
           <div className="grid two">
-            <button type="submit" onClick={editBook}>Save changes</button>
-            <button type="submit" onClick={() => setShowEdit(false)}>Cancel</button>
+            <button className="save" type="submit" onClick={editBook}>Save changes</button>
+            <button className="cancel" type="submit" onClick={() => setShowEdit(false)}>Cancel</button>
           </div>
         </div>
       </form>

@@ -38,7 +38,7 @@ body, button{
   display: grid;
   background-color: white;
   grid-auto-rows: auto;
-  padding-top: 2rem;
+  padding-top: 1rem;
   border-radius: 8px;
   margin: 0rem auto;
 
@@ -82,17 +82,20 @@ article {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: center;
+  align-items: flex-start;
+
 }
 .filter>div{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
 }
 
 h2{
   font-size: 1.25rem;
   margin: 0;
+  text-align: left;
 }
 h3{
   margin: 0;
@@ -151,13 +154,57 @@ button{
   padding: 15px 30px;
 }
 .toggle-btn{
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   justify-self: flex-end;
 }
 
 .actions button{
-  padding: 0.25rem !important;
-  width: 32px;
-  height: 32px;
+  padding: 0.5rem !important;
+  width: 36px;
+  height: 36px;
+}
+
+.fa-times{
+  color: red;
+}
+
+.status{
+  border-radius: 4px;
+  padding-inline: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: #282c34;
+}
+
+.status.free{
+  background-color: lightgreen;
+
+}
+.status.loaned{
+  background-color: lightcoral;
+
+}
+
+.cancel{
+  background-color: lightcoral;
+
+}
+
+.save{
+  background-color: lightgreen;
+
+}
+.flex{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex.center{
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
 }
