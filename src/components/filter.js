@@ -8,19 +8,18 @@ const Filter = ({newSearch, searchHandler, setSortMethod}) => {
           <input type="text" placeholder="Search..." name="filter" onChange={searchHandler} value={newSearch} />
           <div>
             <div className="flex">
-              <p>Sort by name:</p>
-              <div className="flex center">
+              <div className="flex center actions">
                 <button onClick={() => setSortMethod(0)}><FontAwesomeIcon icon={faSortAlphaDown}/></button>
                 <button onClick={() => setSortMethod(1)}><FontAwesomeIcon icon={faSortAlphaUp}/></button>
               </div>
             </div>
-            <div className="flex">
+            {/* <div className="flex">
               <p>Sort by genre:</p>
               <div className="flex center">
                 <button onClick={() => setSortMethod(2)}><FontAwesomeIcon icon={faSortAlphaDown}/></button>
                 <button onClick={() => setSortMethod(3)}><FontAwesomeIcon icon={faSortAlphaUp}/></button>
               </div>
-            </div>
+            </div> */}
           </div>
       </div>
   );

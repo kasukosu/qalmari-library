@@ -64,7 +64,7 @@ article {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #84D0F0;
+  background-color: white;
   border-radius: 8px;
   top: 0px;
   left: 0px;
@@ -81,7 +81,7 @@ article {
 .filter{
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   align-items: flex-start;
 
 }
@@ -99,6 +99,10 @@ h2{
 }
 h3{
   margin: 0;
+}
+
+article h2{
+  margin-bottom: 0.25rem;
 }
 
 .head{
@@ -171,7 +175,7 @@ button{
 
 .status{
   border-radius: 4px;
-  padding-inline: 0.5rem;
+  padding-inline: 0.25rem;
   text-align: center;
   font-weight: 500;
   color: #282c34;

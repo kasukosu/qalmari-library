@@ -18,6 +18,10 @@ const Book = ({book, deleteBook, books, setBooks}) => {
 
   const editBook = async (e) => {
     try {
+      if(editableBook.name.length===0 || editableBook.genre.length===0){
+        alert("Name and genre fields can't be empty")
+        return
+      }
       e.preventDefault();
       const res = await axios.put(`${apiUrl}/${editableBook.id}`, editableBook)
       console.log(res);
